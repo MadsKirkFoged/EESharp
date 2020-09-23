@@ -155,6 +155,30 @@ namespace EESharp
             //Display result
             Debug.Print(RadiationPower.ToUnit(PowerUnit.Kilowatt).ToString());
 
+
+
+
+            //Example: Putting code in Class to make it easyier to reuse
+
+
+            //New instance of a compressor
+            Compressor Comp1 = new Compressor(FluidList.Ammonia);
+
+            //Settings for the compressor
+            Comp1.DischargePressure = Pressure.FromBars(60);
+            Comp1.EtaI = 0.80;
+            Comp1.EtaV = 0.80;
+
+            //Giving the compressor en inlet condition
+            Comp1.Inlet.UpdatePX(Pressure.FromBars(20), 1);
+
+            //Calling the compressor calculations
+            Comp1.DoCalculation();
+
+            //Plotting the result
+            LOGPH.Plot(Comp1.Inlet, Comp1.Outlet);
+
+
         }
 
 
