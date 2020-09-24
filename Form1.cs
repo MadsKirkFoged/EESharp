@@ -21,11 +21,12 @@ namespace EESharp
 
             //Starting up frontpage
             InitializeComponent();
-            
+
             //Starting LOGPH diagram
             Plot_LogPH LOGPH = new Plot_LogPH(MyChart, FluidList.Ammonia);
             LOGPH.PlotLogPH();
 
+            Fluid Vand = new Fluid(FluidList.Water);
 
             //Compressor calculations
             Fluid CompressorInlet = new Fluid(FluidList.Ammonia);
@@ -144,7 +145,7 @@ namespace EESharp
             // do this to bypass the unitsystem and then you have to handle the units yourself!
 
             //The Stefan - Boltzmann Constant
-            double σ = 5.6703*10E-8; //(W / m2K4)
+            double σ = 5.6703 * 10E-8; //(W / m2K4)
 
             Temperature TempOfBlackBody = Temperature.FromDegreesCelsius(20);
             Area AreaOfBody = Area.FromSquareMeters(0.634);

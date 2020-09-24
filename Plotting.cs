@@ -37,9 +37,9 @@ namespace EESharp
 
 
             //Finding the zoom on the X-axis
-            Dome.UpdatePX(Dome.P_Min, 0);
+            Dome.UpdatePX(Dome.LimitPressureMin, 0);
             GraphHMin = Dome.Enthalpy * 0.5;
-            Dome.UpdatePX(Dome.P_Min, 1);            
+            Dome.UpdatePX(Dome.LimitPressureMin, 1);            
             GraphHMax = Dome.Enthalpy * 1.4;
 
             //Rounds to nearest 50
@@ -227,8 +227,8 @@ namespace EESharp
             Pressure top, bottom, step;
 
             //This defines the top of the 'dome'       
-            top = SelectedFluid.P_Crit;
-            bottom = SelectedFluid.P_Min;
+            top = SelectedFluid.CriticalPressure;
+            bottom = SelectedFluid.LimitPressureMin;
             step = Pressure.FromBars(1);
 
 
