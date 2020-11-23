@@ -24,6 +24,25 @@ namespace EESharp
 
             //Starting LOGPH diagram
             Plot_LogPH LOGPH = new Plot_LogPH(MyChart, FluidList.Ammonia);
+            PlotXY XYChart = new PlotXY(MyChartXY);
+
+
+
+            //Playing around with a normal XY Graph
+
+            XYChart.Plot(Power.FromKilowatts(10), MassFlow.FromKilogramsPerSecond(1));
+            XYChart.Plot(Power.FromKilowatts(11), MassFlow.FromKilogramsPerSecond(1.2));
+            XYChart.Plot(Power.FromKilowatts(12), MassFlow.FromKilogramsPerSecond(1.6));
+            XYChart.Plot(Power.FromKilowatts(13), MassFlow.FromKilogramsPerSecond(1.7));
+            XYChart.Plot(Power.FromKilowatts(14), MassFlow.FromKilogramsPerSecond(1.8));
+            XYChart.Plot(Power.FromKilowatts(15), MassFlow.FromKilogramsPerSecond(1.9));
+            XYChart.Plot(Power.FromKilowatts(17), MassFlow.FromKilogramsPerSecond(2));
+            XYChart.Plot(Power.FromKilowatts(21), MassFlow.FromKilogramsPerSecond(2.8));
+            XYChart.Plot(Power.FromKilowatts(25), MassFlow.FromKilogramsPerSecond(3));
+
+
+
+
             LOGPH.PlotLogPH();
 
             Fluid Vand = new Fluid(FluidList.Water);
