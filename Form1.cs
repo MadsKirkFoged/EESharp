@@ -29,7 +29,6 @@ namespace EESharp
 
 
             //Playing around with a normal XY Graph
-
             XYChart.Plot(Power.FromKilowatts(10), MassFlow.FromKilogramsPerSecond(1));
             XYChart.Plot(Power.FromKilowatts(11), MassFlow.FromKilogramsPerSecond(1.2));
             XYChart.Plot(Power.FromKilowatts(12), MassFlow.FromKilogramsPerSecond(1.6));
@@ -40,9 +39,7 @@ namespace EESharp
             XYChart.Plot(Power.FromKilowatts(21), MassFlow.FromKilogramsPerSecond(2.8));
             XYChart.Plot(Power.FromKilowatts(25), MassFlow.FromKilogramsPerSecond(3));
 
-
-
-
+            //Plotting LOGPH
             LOGPH.PlotLogPH();
 
             Fluid Vand = new Fluid(FluidList.Water);
@@ -132,12 +129,6 @@ namespace EESharp
 
 
 
-
-
-
-
-
-
             //Calculations
 
 
@@ -174,7 +165,6 @@ namespace EESharp
 
             //Display result
             Debug.Print(RadiationPower.ToUnit(PowerUnit.Kilowatt).ToString());
-
 
 
 
