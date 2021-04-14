@@ -189,6 +189,49 @@ namespace EESharp
             LOGPH.Plot(Comp1.Inlet, Comp1.Outlet);
 
 
+
+
+            //Binary search
+            //We try to create our own UpdatePS() function using the UpdatePT() function
+            //WHY: To demonstrate the capabilities of Binary search
+
+
+            Fluid my_fluid = new Fluid(FluidList.Ammonia);
+
+            //This is want we are aiming for
+            Entropy Aim = Entropy.FromJoulesPerKelvin(1699.7);
+
+
+            Temperature Max = my_fluid.LimitTemperatureMax;
+            Temperature Min = my_fluid.LimitTemperatureMin;
+            Temperature Mid = Temperature.Zero;
+
+
+            for (int i = 0; i < 20; i++)
+            {
+
+                Mid = Temperature.FromKelvins((Max.Kelvins + Min.Kelvins) / 2);
+
+                my_fluid.UpdatePT(Pressure.FromBars(10), Mid);
+
+
+                if (my_fluid.Entropy > Aim)
+                    Max = Mid;
+                else
+                    Min = Mid;
+
+                //Stop if we are almost there
+                if (UnitMath.Abs(my_fluid.Entropy - Aim) < Entropy.FromJoulesPerKelvin(0.1))
+                    break;
+
+                
+                
+
+            }
+
+
+
+
         }
 
 
