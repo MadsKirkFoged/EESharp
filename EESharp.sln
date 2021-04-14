@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EESharp With Userinterface", "EESharp With Userinterface.csproj", "{DA6A0900-5AE8-4774-812D-809C59E591AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EESharpWithUserinterface", "EESharpWithUserinterface.csproj", "{DA6A0900-5AE8-4774-812D-809C59E591AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EESharp Console", "..\EESharp Console\EESharp Console.csproj", "{B26343C8-A7C3-48BF-B81D-84850407698E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EESharpConsole", "..\EESharp Console\EESharpConsole.csproj", "{B26343C8-A7C3-48BF-B81D-84850407698E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
