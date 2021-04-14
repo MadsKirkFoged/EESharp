@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EESharpWithUserinterface", "EESharpWithUserinterface.csproj", "{DA6A0900-5AE8-4774-812D-809C59E591AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "..\ConsoleApp\ConsoleApp.csproj", "{6E743B9B-406A-4293-8F24-60FE6B4D0B0B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{DA6A0900-5AE8-4774-812D-809C59E591AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA6A0900-5AE8-4774-812D-809C59E591AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA6A0900-5AE8-4774-812D-809C59E591AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E743B9B-406A-4293-8F24-60FE6B4D0B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E743B9B-406A-4293-8F24-60FE6B4D0B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E743B9B-406A-4293-8F24-60FE6B4D0B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E743B9B-406A-4293-8F24-60FE6B4D0B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
