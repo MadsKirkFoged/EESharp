@@ -16,6 +16,67 @@ namespace EESharp
 {
     public partial class Form1 : Form
     {
+
+        public void MoveIntoDome(Fluid f1)
+        {
+            //This function moves a Fluid into the Dome
+
+            //Temporary fluid only used in this function
+            Fluid Localfluid = new Fluid();
+            Localfluid.Copy(f1);
+
+
+            //Already inside, do nothing
+            if (f1.Quality >= 0 && f1.Quality <= 1)
+            {
+                return; //This makes the function stop here
+            }            
+            else if (f1.Pressure > f1.CriticalPressure) //Above dome?
+            {
+                return; //This makes the function stop here
+            }
+
+
+            //Test if it is on the left side
+            Localfluid.UpdatePX(Localfluid.Pressure, 0);
+
+            if (f1.Enthalpy <= Localfluid.Enthalpy)
+            {
+                f1.UpdatePX(f1.Pressure, 0);
+            }
+            else 
+            {
+                f1.UpdatePX(f1.Pressure, 1);
+            }
+
+        }
+
+
+
+        public TemperatureDelta ArithmeticMean(Temperature P_in, Temperature P_Out, Temperature S_in, Temperature S_Out)
+        {
+
+            //https://www.engineeringtoolbox.com/arithmetic-logarithmic-mean-temperature-d_436.html
+            //AMTD = (tpi + tpo) / 2 - (tsi + tso) / 2
+            //AMTD = Arithmetic Mean Temperature Difference(oF, oC)
+            //tpi = primary inlet temperature(oF, oC)
+            //tpo = primary outlet temperature(oF, oC)
+            //tsi = secondary inlet temperature(oF, oC)
+            //tso = secondary outlet temperature(oF, oC)
+
+
+            TemperatureDelta AMTD = TemperatureDelta.FromKelvins((P_in.Kelvins + P_Out.Kelvins) / 2 - (S_in.Kelvins + S_Out.Kelvins) / 2);
+
+
+            return AMTD;
+
+        }
+
+
+
+
+
+
         public Form1()
         {
 
@@ -228,6 +289,36 @@ namespace EESharp
                 
 
             }
+
+
+
+
+            //Functions
+
+            Temperature P_in = Temperature.FromDegreesCelsius(50);
+            Temperature P_Out = Temperature.FromDegreesCelsius(30);
+            Temperature S_in = Temperature.FromDegreesCelsius(10);
+            Temperature S_Out = Temperature.FromDegreesCelsius(20);
+
+
+            TemperatureDelta MeanT = ArithmeticMean(P_in, P_Out, S_in, S_Out);
+
+
+
+
+
+
+            //Moving it outside the dome
+            my_fluid.UpdatePX(my_fluid.Pressure,0);
+            my_fluid.UpdatePH(my_fluid.Pressure, my_fluid.Enthalpy - SpecificEnergy.FromJoulesPerKilogram(10000));
+
+
+            MoveIntoDome(my_fluid);
+
+
+
+            Debug.Print($"This fluid has a density of: {my_fluid.Density} and a temperature of: {my_fluid.Temperature.ToUnit(TemperatureUnit.DegreeCelsius)}");
+            Debug.Print($"It also have a density with many numbers: {my_fluid.Density.ToString("s9")} ");
 
 
 
