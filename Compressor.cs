@@ -32,7 +32,7 @@ namespace EESharp
         public void DoCalculation()
         {
 
-
+            Outlet.Copy(Inlet);
 
             //Update to H2s state
             Outlet.UpdatePS(DischargePressure, Inlet.Entropy);
@@ -42,7 +42,6 @@ namespace EESharp
 
             //Setting the outlet condition to H2
             Outlet.UpdatePH(DischargePressure, H2);
-
         }
 
 
