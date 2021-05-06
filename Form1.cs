@@ -325,6 +325,17 @@ namespace EESharp
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
+
+
+            OutputTemperature.UnitValue = InputTemperature.UnitValue;
+            outputPressure.UnitValue = inputPressure.UnitValue;
+            outputMassFlow.UnitValue = inputMassFlow.UnitValue;
+            outputPower.UnitValue = inputPower.UnitValue;
+
+
+        }
     }
 }

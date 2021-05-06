@@ -81,6 +81,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compressor.cs" />
+    <Compile Include="Controls\ControlPower.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlPower.designer.cs">
+      <DependentUpon>ControlPower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlMassFlow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlMassFlow.designer.cs">
+      <DependentUpon>ControlMassFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlPressure.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlPressure.designer.cs">
+      <DependentUpon>ControlPressure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlTemperature.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlTemperature.designer.cs">
+      <DependentUpon>ControlTemperature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericUpDownUnit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericUpDownUnit.designer.cs">
+      <DependentUpon>NumericUpDownUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlottingXY.cs" />
     <Compile Include="Plotting.cs" />
     <Compile Include="Form1.cs">
@@ -91,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\NumericUpDownUnit.resx">
+      <DependentUpon>NumericUpDownUnit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
