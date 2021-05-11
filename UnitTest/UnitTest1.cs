@@ -3,7 +3,6 @@ using EESharp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpFluids;
 using UnitsNet;
-using UnitsNet.Units;
 
 namespace UnitTest
 {

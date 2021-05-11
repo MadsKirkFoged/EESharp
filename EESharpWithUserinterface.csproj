@@ -80,7 +80,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compressor.cs" />
+    <Compile Include="Class\Compressor.cs" />
     <Compile Include="Controls\ControlPower.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -111,8 +111,8 @@
     <Compile Include="Controls\NumericUpDownUnit.designer.cs">
       <DependentUpon>NumericUpDownUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlottingXY.cs" />
-    <Compile Include="Plotting.cs" />
+    <Compile Include="Plotting\PlottingPowerMassFlow.cs" />
+    <Compile Include="Plotting\Plot_LogPH.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

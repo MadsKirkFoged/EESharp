@@ -18,17 +18,11 @@ namespace EESharp
 {
     public class Plot_LogPH
     {
-
-
-        private  Pressure GraphPMax, GraphPMin;
-
-        private  SpecificEnergy GraphHMax, GraphHMin;
         private  LiveCharts.WinForms.CartesianChart MyChart;
-        private  int counter;
         private SharpFluids.FluidList RefType;
 
 
-        public Plot_LogPH(LiveCharts.WinForms.CartesianChart myChart, SharpFluids.FluidList refType)
+        public Plot_LogPH(LiveCharts.WinForms.CartesianChart myChart, FluidList refType)
         {
             //Settings
             MyChart = myChart;
@@ -38,23 +32,24 @@ namespace EESharp
 
             //Finding the zoom on the X-axis
             Dome.UpdatePX(Dome.LimitPressureMin, 0);
-            GraphHMin = Dome.Enthalpy * 0.5;
-            Dome.UpdatePX(Dome.LimitPressureMin, 1);            
-            GraphHMax = Dome.Enthalpy * 1.4;
+            SpecificEnergy GraphHMin = Dome.Enthalpy * 0.5;
+            Dome.UpdatePX(Dome.LimitPressureMin, 1);
+            SpecificEnergy GraphHMax = Dome.Enthalpy * 1.4;
 
             //Rounds to nearest 50
             GraphHMin = SpecificEnergy.FromJoulesPerKilogram(Math.Round(GraphHMin.JoulesPerKilogram / 50) * 50);    
-
 
 
             //Creating Y Axis
             MyChart.AxisY.Add(new LogarithmicAxis
             {
                 LabelFormatter = value => (Math.Pow(10, value)).ToString("N0"),
-                Base = 10,//Note that Max and min values are based on the 'Base = 10'!
+                Base = 10,  //Note that Max and min values are based on the 'Base = 10'!
                 MaxValue = 2.5, //2.5, 
                 MinValue = 0, //1    
-                Title = "Pressure - [" + string.Format(new CultureInfo("en-US"), "{0:a}", GraphPMax.ToUnit(UnitsNet.Units.PressureUnit.Bar)) + "]",
+                Title = "Pressure - [" + string.Format(new CultureInfo("en-US"), "{0:a}", Dome.Pressure.ToUnit(UnitsNet.Units.PressureUnit.Bar)) + "]",
+
+
 
                 Separator = new Separator
                 {
@@ -174,18 +169,7 @@ namespace EESharp
 
         public  void Clear()
         {
-
-
-
-            for (int i = counter; i < MyChart.Series.Count; MyChart.Series.RemoveAt(i))
-            {
-
-            }
-
-
-
-            //MyChart.Series.RemoveAt(1);
-
+            MyChart.Series.Clear();
         }
 
         public  void PlotLogPH()
@@ -222,38 +206,24 @@ namespace EESharp
         //Dome
         private ChartValues<ObservablePoint> Dome()
         {
+
             var Results = new ChartValues<ObservablePoint>();
-            var SelectedFluid = new Fluid(RefType);
-            Pressure top, bottom, step;
-
-            //This defines the top of the 'dome'       
-            top = SelectedFluid.CriticalPressure;
-            bottom = SelectedFluid.LimitPressureMin;
-            step = Pressure.FromBars(1);
+            Fluid Dome = new Fluid(RefType);
 
 
-            //Creating the left side of the dome with X = 0
-            for (Pressure i = bottom; i <= top; i = i + step)
+            //Asking SharpFluid for the list of points for the 'Dome'
+            List<(Pressure, SpecificEnergy)> DomeList = Dome.GetEnvelopePhase();
+
+
+            //Converting the points from Sharpfluid into something the graph system can understand
+            foreach (var point in DomeList)
             {
-                SelectedFluid.UpdatePX(i, 0);
                 Results.Add(new ObservablePoint
                 {
-                    X = SelectedFluid.Enthalpy.ToUnit(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram).Value,
-                    Y = i.ToUnit(UnitsNet.Units.PressureUnit.Bar).Value
+                    X = point.Item2.KilojoulesPerKilogram,
+                    Y = point.Item1.Bars
                 });
 
-            }
-
-
-            //Creating the right side of the dome with X = 1
-            for (Pressure i = top; i >= bottom; i = i - step)
-            {
-                SelectedFluid.UpdatePX(i, 1);
-                Results.Add(new ObservablePoint
-                {
-                    X = SelectedFluid.Enthalpy.ToUnit(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram).Value,
-                    Y = i.ToUnit(UnitsNet.Units.PressureUnit.Bar).Value
-                });
             }
 
 

@@ -16,15 +16,13 @@ using SharpFluids;
 
 namespace EESharp
 {
-    public class PlotXY
+    public class PlottingPowerMassFlow
     {
 
         private  LiveCharts.WinForms.CartesianChart MyChart;
-        private  int counter;
 
 
-
-        public PlotXY(LiveCharts.WinForms.CartesianChart myChart)
+        public PlottingPowerMassFlow(LiveCharts.WinForms.CartesianChart myChart)
         {
             //Settings
             MyChart = myChart;
@@ -110,15 +108,9 @@ namespace EESharp
             
         }
 
-       
-
         public  void Clear()
         {
-            for (int i = counter; i < MyChart.Series.Count; MyChart.Series.RemoveAt(i))
-            {
-
-            }
-
+            MyChart.Series.Clear();
         }
   
     }

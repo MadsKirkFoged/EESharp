@@ -85,7 +85,7 @@ namespace EESharp
 
             //Starting LOGPH diagram
             Plot_LogPH LOGPH = new Plot_LogPH(MyChart, FluidList.Ammonia);
-            PlotXY XYChart = new PlotXY(MyChartXY);
+            PlottingPowerMassFlow XYChart = new PlottingPowerMassFlow(MyChartXY);
 
 
 
@@ -103,6 +103,7 @@ namespace EESharp
             //Plotting LOGPH
             LOGPH.PlotLogPH();
 
+            //Creating a new Water Fluid
             Fluid Vand = new Fluid(FluidList.Water);
 
             //Compressor calculations
@@ -164,6 +165,10 @@ namespace EESharp
 
             //Expansion valve drops the pressure down but keeps the Enthalpy
             ValveOutlet.UpdatePH(CompressorInlet.Pressure, ValveInlet.Enthalpy);
+
+
+            //LOGPH.Clear();
+
 
             //Plot Valve as lines
             LOGPH.Plot(ValveInlet, ValveOutlet);
@@ -262,20 +267,24 @@ namespace EESharp
             //This is want we are aiming for
             Entropy Aim = Entropy.FromJoulesPerKelvin(1699.7);
 
-
+            //Setting up Max,mid and min that are going to be used in the Binary search
             Temperature Max = my_fluid.LimitTemperatureMax;
             Temperature Min = my_fluid.LimitTemperatureMin;
             Temperature Mid = Temperature.Zero;
 
 
+            //Searching loop (setting a max limit of iternation of 20)
             for (int i = 0; i < 20; i++)
             {
 
+                //Calculate the current mid-point
                 Mid = Temperature.FromKelvins((Max.Kelvins + Min.Kelvins) / 2);
 
+                //Call our equation using the new mid-point
                 my_fluid.UpdatePT(Pressure.FromBars(10), Mid);
 
 
+                //Check if our midt point is above or below our aim-point
                 if (my_fluid.Entropy > Aim)
                     Max = Mid;
                 else
@@ -283,40 +292,38 @@ namespace EESharp
 
                 //Stop if we are almost there
                 if (UnitMath.Abs(my_fluid.Entropy - Aim) < Entropy.FromJoulesPerKelvin(0.1))
-                    break;
-
-                
-                
-
+                    break;             
             }
 
 
 
 
             //Functions
+            //If you are doing something more the once, functions are a good way to reuse code
 
             Temperature P_in = Temperature.FromDegreesCelsius(50);
             Temperature P_Out = Temperature.FromDegreesCelsius(30);
             Temperature S_in = Temperature.FromDegreesCelsius(10);
             Temperature S_Out = Temperature.FromDegreesCelsius(20);
 
-
+            //Ex of what a function can do
             TemperatureDelta MeanT = ArithmeticMean(P_in, P_Out, S_in, S_Out);
 
 
 
 
 
-
+            //Another ex of what a function can do
             //Moving it outside the dome
             my_fluid.UpdatePX(my_fluid.Pressure,0);
             my_fluid.UpdatePH(my_fluid.Pressure, my_fluid.Enthalpy - SpecificEnergy.FromJoulesPerKilogram(10000));
 
-
+            //Here we move the Fluid object into the dome (if it is outside of it..)
             MoveIntoDome(my_fluid);
 
 
 
+            //Creating strings with a '$' is a great way to make a better overview of the string inside the code
             Debug.Print($"This fluid has a density of: {my_fluid.Density} and a temperature of: {my_fluid.Temperature.ToUnit(TemperatureUnit.DegreeCelsius)}");
             Debug.Print($"It also have a density with many numbers: {my_fluid.Density.ToString("s9")} ");
 
@@ -328,14 +335,13 @@ namespace EESharp
         private void button1_Click(object sender, EventArgs e)
         {
 
+            //This code is called when the buttom is clicked
 
-
+            //An ex of how to use and transfer user in/output
             OutputTemperature.UnitValue = InputTemperature.UnitValue;
             outputPressure.UnitValue = inputPressure.UnitValue;
             outputMassFlow.UnitValue = inputMassFlow.UnitValue;
             outputPower.UnitValue = inputPower.UnitValue;
-
-
         }
     }
 }
