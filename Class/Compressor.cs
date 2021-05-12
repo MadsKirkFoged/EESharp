@@ -24,8 +24,6 @@ namespace EESharp
             //Setting the inlet and outlet to the selected fluid type
             Inlet = new Fluid(fluidType);
             Outlet = new Fluid(fluidType);
-
-
         }
 
 
