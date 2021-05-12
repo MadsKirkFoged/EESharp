@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Compressor.cs" />
+    <Compile Include="Class\testClass.cs" />
     <Compile Include="Controls\ControlPower.cs">
       <SubType>Component</SubType>
     </Compile>
