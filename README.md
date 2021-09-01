@@ -20,7 +20,7 @@ Open Visual studio and Click `Clone a repository`
 
 
 Copy the address for this site in: https://github.com/MadsKirkFoged/EESharp
-and click *clone*
+and click `clone`
 ![alt text](https://github.com/MadsKirkFoged/EESharp/blob/master/Images/Clone2.png?raw=true)
 
 Click `Solution Explorer` and double click on `EESharp.sln`
@@ -34,7 +34,7 @@ If you right click on `Form1.cs` you are going to use `View Code` and `View Desi
 ![alt text](https://github.com/MadsKirkFoged/EESharp/blob/master/Images/end.png?raw=true)
 
 
-`View Code` is here you find the code
+`View Code` is where you find the code
 
 `View Designer` is where the userinterface is
 
