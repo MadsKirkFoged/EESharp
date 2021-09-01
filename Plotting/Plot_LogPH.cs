@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnitsNet;
 using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Configurations;
@@ -11,8 +10,8 @@ using System.Windows.Media;
 using System.Diagnostics;
 using System.Globalization;
 using SharpFluids;
-
-
+using EngineeringUnits;
+using EngineeringUnits.Units;
 
 namespace EESharp
 {
@@ -47,7 +46,7 @@ namespace EESharp
                 Base = 10,  //Note that Max and min values are based on the 'Base = 10'!
                 MaxValue = 2.5, //2.5, 
                 MinValue = 0, //1    
-                Title = "Pressure - [" + string.Format(new CultureInfo("en-US"), "{0:a}", Dome.Pressure.ToUnit(UnitsNet.Units.PressureUnit.Bar)) + "]",
+                Title = "Pressure - [" + string.Format(new CultureInfo("en-US"), "{0:a}", Dome.Pressure.ToUnit(PressureUnit.Bar)) + "]",
 
 
 
@@ -66,9 +65,9 @@ namespace EESharp
             MyChart.AxisX.Add(new Axis
             {
                 LabelFormatter = value => value.ToString("N0"),
-                MaxValue = GraphHMax.ToUnit(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram).Value,
-                MinValue = GraphHMin.ToUnit(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram).Value,
-                Title = "Enthalpy - [" + string.Format(new CultureInfo("en-US"), "{0:a}", GraphHMax.ToUnit(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram)) + "]",
+                MaxValue = GraphHMax.As(SpecificEnergyUnit.KilojoulePerKilogram),
+                MinValue = GraphHMin.As(SpecificEnergyUnit.KilojoulePerKilogram),
+                Title = "Enthalpy - [" + string.Format(new CultureInfo("en-US"), "{0:a}", GraphHMax.ToUnit(SpecificEnergyUnit.KilojoulePerKilogram)) + "]",
                 Separator = new Separator
                 {
                     Stroke = Brushes.LightGray,

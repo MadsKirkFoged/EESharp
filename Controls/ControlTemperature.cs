@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EngineeringUnits;
+using EngineeringUnits.Units;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UnitsNet;
-using UnitsNet.Units;
+
 
 namespace ControlsEESharp
 {
@@ -26,7 +27,7 @@ namespace ControlsEESharp
             }   
             set 
             {
-                Minimum2 = Temperature.FromDegreesCelsius(value);
+                Minimum2 = Temperature.FromDegreesCelsius((double)value);
                 base.Minimum = value; 
             }  
 
@@ -40,7 +41,7 @@ namespace ControlsEESharp
             }
             set
             {
-                Maximum2 = Temperature.FromDegreesCelsius(value);
+                Maximum2 = Temperature.FromDegreesCelsius((double)value);
                 base.Maximum = value;
             }
 
@@ -97,7 +98,7 @@ namespace ControlsEESharp
         {
             get
             {
-                return Temperature.From(Value, Unit);
+                return Temperature.From((double)Value, Unit);
             }
             set
             {                
@@ -110,7 +111,7 @@ namespace ControlsEESharp
         protected override void OnValueChanged(EventArgs e)
         {
 
-            UnitValue = Temperature.From(Value, unit);         
+            UnitValue = Temperature.From((double)Value, unit);         
             AdjustControlSize();
             Label = string.Format("{0:a}", UnitValue.ToUnit(unit));
             base.OnValueChanged(e);

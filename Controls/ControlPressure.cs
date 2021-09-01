@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EngineeringUnits;
+using EngineeringUnits.Units;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UnitsNet;
-using UnitsNet.Units;
+
 
 namespace ControlsEESharp
 {
@@ -24,7 +25,7 @@ namespace ControlsEESharp
             }   
             set 
             {
-                Minimum2 = Pressure.FromBars(value);
+                Minimum2 = Pressure.FromBars((double)value);
                 base.Minimum = value; 
             }  
 
@@ -38,7 +39,7 @@ namespace ControlsEESharp
             }
             set
             {
-                Maximum2 = Pressure.FromBars(value);
+                Maximum2 = Pressure.FromBars((double)value);
                 base.Maximum = value;
             }
 
@@ -58,8 +59,8 @@ namespace ControlsEESharp
             Minimum2 = Pressure.Zero;
             Maximum2 = Pressure.FromBars(10000);
 
-            Minimum = (decimal)Minimum2.ToUnit(unit).Value;
-            Maximum = (decimal)Maximum2.ToUnit(unit).Value;
+            Minimum = (decimal)Minimum2.As(unit);
+            Maximum = (decimal)Maximum2.As(unit);
         }
 
         protected override void ToolTip1_Popup(Object sender, PopupEventArgs e)
@@ -97,7 +98,7 @@ namespace ControlsEESharp
         {
             get
             {
-                return Pressure.From(Value, Unit);
+                return Pressure.From((double)Value, Unit);
             }
             set
             {                
@@ -110,7 +111,7 @@ namespace ControlsEESharp
         protected override void OnValueChanged(EventArgs e)
         {
 
-            UnitValue = Pressure.From(Value, unit);         
+            UnitValue = Pressure.From((double)Value, unit);         
             AdjustControlSize();
             Label = string.Format("{0:a}", UnitValue.ToUnit(unit));
             base.OnValueChanged(e);

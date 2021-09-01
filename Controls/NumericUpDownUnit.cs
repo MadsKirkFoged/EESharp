@@ -2,8 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using UnitsNet;
-using UnitsNet.Units;
 using System.Diagnostics;
 using System.Drawing;
 

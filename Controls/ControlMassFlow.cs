@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EngineeringUnits;
+using EngineeringUnits.Units;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UnitsNet;
-using UnitsNet.Units;
+
 
 namespace ControlsEESharp
 {
@@ -24,7 +25,7 @@ namespace ControlsEESharp
             }   
             set 
             {
-                Minimum2 = MassFlow.FromKilogramsPerSecond(value);
+                Minimum2 = MassFlow.FromKilogramsPerSecond((double)value);
                 base.Minimum = value; 
             }  
 
@@ -38,7 +39,7 @@ namespace ControlsEESharp
             }
             set
             {
-                Maximum2 = MassFlow.FromKilogramsPerSecond(value);
+                Maximum2 = MassFlow.FromKilogramsPerSecond((double)value);
                 base.Maximum = value;
             }
 
@@ -97,7 +98,7 @@ namespace ControlsEESharp
         {
             get
             {
-                return MassFlow.From(Value, Unit);
+                return MassFlow.From((double)Value, Unit);
             }
             set
             {                
@@ -110,7 +111,7 @@ namespace ControlsEESharp
         protected override void OnValueChanged(EventArgs e)
         {
 
-            UnitValue = MassFlow.From(Value, unit);         
+            UnitValue = MassFlow.From((double)Value, unit);         
             AdjustControlSize();
             Label = string.Format("{0:a}", UnitValue.ToUnit(unit));
             base.OnValueChanged(e);

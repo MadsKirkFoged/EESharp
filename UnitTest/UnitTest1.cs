@@ -1,8 +1,9 @@
 ﻿using System;
 using EESharp;
+using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpFluids;
-using UnitsNet;
+
 
 namespace UnitTest
 {

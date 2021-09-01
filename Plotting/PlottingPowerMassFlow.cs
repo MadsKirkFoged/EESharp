@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnitsNet;
 using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.Configurations;
@@ -11,8 +10,7 @@ using System.Windows.Media;
 using System.Diagnostics;
 using System.Globalization;
 using SharpFluids;
-
-
+using EngineeringUnits;
 
 namespace EESharp
 {

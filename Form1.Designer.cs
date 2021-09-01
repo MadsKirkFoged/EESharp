@@ -155,41 +155,41 @@
             0,
             0,
             -2147352576});
-            this.InputTemperature.Name = "InputTemperature";
-            this.InputTemperature.OutputControl = false;
-            this.InputTemperature.Size = new System.Drawing.Size(80, 20);
-            this.InputTemperature.TabIndex = 7;
-            this.InputTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.InputTemperature.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            this.InputTemperature.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // OutputTemperature
-            // 
-            this.OutputTemperature.BackColor = System.Drawing.Color.White;
-            this.OutputTemperature.ExtraToolTip = null;
-            this.OutputTemperature.InterceptArrowKeys = false;
-            this.OutputTemperature.Location = new System.Drawing.Point(189, 379);
-            this.OutputTemperature.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.OutputTemperature.Minimum = new decimal(new int[] {
-            27315,
-            0,
-            0,
-            -2147352576});
-            this.OutputTemperature.Name = "OutputTemperature";
-            this.OutputTemperature.OutputControl = true;
-            this.OutputTemperature.ReadOnly = true;
-            this.OutputTemperature.Size = new System.Drawing.Size(80, 20);
-            this.OutputTemperature.TabIndex = 12;
-            this.OutputTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.OutputTemperature.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            //this.InputTemperature.Name = "InputTemperature";
+            //this.InputTemperature.OutputControl = false;
+            //this.InputTemperature.Size = new System.Drawing.Size(80, 20);
+            //this.InputTemperature.TabIndex = 7;
+            //this.InputTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            //this.InputTemperature.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            //this.InputTemperature.Value = new decimal(new int[] {
+            //100,
+            //0,
+            //0,
+            //0});
+            //// 
+            //// OutputTemperature
+            //// 
+            //this.OutputTemperature.BackColor = System.Drawing.Color.White;
+            //this.OutputTemperature.ExtraToolTip = null;
+            //this.OutputTemperature.InterceptArrowKeys = false;
+            //this.OutputTemperature.Location = new System.Drawing.Point(189, 379);
+            //this.OutputTemperature.Maximum = new decimal(new int[] {
+            //10000,
+            //0,
+            //0,
+            //0});
+            //this.OutputTemperature.Minimum = new decimal(new int[] {
+            //27315,
+            //0,
+            //0,
+            //-2147352576});
+            //this.OutputTemperature.Name = "OutputTemperature";
+            //this.OutputTemperature.OutputControl = true;
+            //this.OutputTemperature.ReadOnly = true;
+            //this.OutputTemperature.Size = new System.Drawing.Size(80, 20);
+            //this.OutputTemperature.TabIndex = 12;
+            //this.OutputTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            //this.OutputTemperature.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // button1
             // 

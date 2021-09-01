@@ -8,9 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EngineeringUnits;
+using EngineeringUnits.Units;
 using SharpFluids;
-using UnitsNet;
-using UnitsNet.Units;
+
 
 namespace EESharp
 {
@@ -291,7 +292,7 @@ namespace EESharp
                     Min = Mid;
 
                 //Stop if we are almost there
-                if (UnitMath.Abs(my_fluid.Entropy - Aim) < Entropy.FromJoulesPerKelvin(0.1))
+                if (my_fluid.Entropy.Abs() - Aim.Abs() < Entropy.FromJoulesPerKelvin(0.1))
                     break;             
             }
 
@@ -325,7 +326,7 @@ namespace EESharp
 
             //Creating strings with a '$' is a great way to make a better overview of the string inside the code
             Debug.Print($"This fluid has a density of: {my_fluid.Density} and a temperature of: {my_fluid.Temperature.ToUnit(TemperatureUnit.DegreeCelsius)}");
-            Debug.Print($"It also have a density with many numbers: {my_fluid.Density.ToString("s9")} ");
+            //Debug.Print($"It also have a density with many numbers: {my_fluid.Density.ToString("s9")} ");
 
 
 
