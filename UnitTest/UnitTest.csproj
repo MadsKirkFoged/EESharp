@@ -40,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EngineeringUnits, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EngineeringUnits.1.1.8\lib\net472\EngineeringUnits.dll</HintPath>
+      <HintPath>..\packages\EngineeringUnits.1.1.212\lib\net472\EngineeringUnits.dll</HintPath>
     </Reference>
     <Reference Include="Fractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=e629dc3e25c47cef, processorArchitecture=MSIL">
       <HintPath>..\packages\Fractions.6.0.0\lib\net45\Fractions.dll</HintPath>
@@ -59,7 +59,7 @@
       <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="SharpFluids, Version=1.2.7533.30487, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpFluids.3.0.114\lib\net472\SharpFluids.dll</HintPath>
+      <HintPath>..\packages\SharpFluids.3.0.131\lib\net472\SharpFluids.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,8 +90,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets'))" />
-    <Error Condition="!Exists('..\packages\SharpFluids.3.0.114\build\SharpFluids.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SharpFluids.3.0.114\build\SharpFluids.targets'))" />
+    <Error Condition="!Exists('..\packages\SharpFluids.3.0.131\build\SharpFluids.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SharpFluids.3.0.131\build\SharpFluids.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" />
-  <Import Project="..\packages\SharpFluids.3.0.114\build\SharpFluids.targets" Condition="Exists('..\packages\SharpFluids.3.0.114\build\SharpFluids.targets')" />
+  <Import Project="..\packages\SharpFluids.3.0.131\build\SharpFluids.targets" Condition="Exists('..\packages\SharpFluids.3.0.131\build\SharpFluids.targets')" />
 </Project>

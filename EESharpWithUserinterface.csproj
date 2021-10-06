@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EngineeringUnits, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\EngineeringUnits.1.1.8\lib\net472\EngineeringUnits.dll</HintPath>
+      <HintPath>packages\EngineeringUnits.1.1.212\lib\net472\EngineeringUnits.dll</HintPath>
     </Reference>
     <Reference Include="Fractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=e629dc3e25c47cef, processorArchitecture=MSIL">
       <HintPath>packages\Fractions.6.0.0\lib\net45\Fractions.dll</HintPath>
@@ -59,7 +59,7 @@
       <HintPath>packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="SharpFluids, Version=1.2.7533.30487, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\SharpFluids.3.0.114\lib\net472\SharpFluids.dll</HintPath>
+      <HintPath>packages\SharpFluids.3.0.131\lib\net472\SharpFluids.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,6 +81,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Evaporator.cs" />
+    <Compile Include="Class\ExpValve.cs" />
+    <Compile Include="Class\Condenser.cs" />
     <Compile Include="Class\Compressor.cs" />
     <Compile Include="Class\testClass.cs" />
     <Compile Include="Controls\ControlPower.cs">
@@ -162,11 +165,11 @@
     <Content Include="Images\StartCoding.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="packages\SharpFluids.3.0.114\build\SharpFluids.targets" Condition="Exists('packages\SharpFluids.3.0.114\build\SharpFluids.targets')" />
+  <Import Project="packages\SharpFluids.3.0.131\build\SharpFluids.targets" Condition="Exists('packages\SharpFluids.3.0.131\build\SharpFluids.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\SharpFluids.3.0.114\build\SharpFluids.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SharpFluids.3.0.114\build\SharpFluids.targets'))" />
+    <Error Condition="!Exists('packages\SharpFluids.3.0.131\build\SharpFluids.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SharpFluids.3.0.131\build\SharpFluids.targets'))" />
   </Target>
 </Project>
